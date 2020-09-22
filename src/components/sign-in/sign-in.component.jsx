@@ -8,7 +8,10 @@ import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 import "./sign-in.styles.scss";
 
 const SignIn = () => {
-  const [userCredentials, setCredentials ] = useState({email:"", password: ""})
+  const [userCredentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
 
   const { email, password } = userCredentials;
 
@@ -26,7 +29,7 @@ const SignIn = () => {
   const handleChange = (event) => {
     const { value, name } = event.target;
 
-    setCredentials({...userCredentials, [name]: value });
+    setCredentials({ ...userCredentials, [name]: value });
   };
 
   return (
@@ -34,7 +37,7 @@ const SignIn = () => {
       <h2>I already have an account</h2>
       <span>Sign in with your email and password</span>
 
-      <form onSubmit={handleSubmit}>
+      <form className="signin-form" onSubmit={handleSubmit}>
         <FormInput
           name="email"
           type="email"
@@ -61,7 +64,6 @@ const SignIn = () => {
       </form>
     </div>
   );
-}
-
+};
 
 export default SignIn;
